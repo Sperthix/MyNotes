@@ -23,6 +23,14 @@
   padding: 0.5rem;
 }
 
+.invalid input {
+  border-color: red;
+}
+
+.invalid p {
+  color: red;
+}
+
 .form button {
   font: inherit;
   color: #e7eaf6;

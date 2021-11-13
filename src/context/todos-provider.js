@@ -9,6 +9,7 @@ const defaultTodos = {
 
 const todosReducer = (state, action) => {
   if (action.type === "ADD") {
+    return {};
   }
   if (action.type === "REMOVE") {
   }
