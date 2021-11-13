@@ -1,8 +1,8 @@
-import TaskList from "./components/Tasks/TaskList";
+import Tasks from "./components/Tasks/Tasks";
 
 function App() {
   return <div>
-    <TaskList />
+    <Tasks />
   </div>;
 }
 

@@ -1,4 +1,3 @@
-import Card from "../UI/Card";
 import Task from "./Task";
 
 const DUMMY_TASKS = [
@@ -11,15 +10,15 @@ const DUMMY_TASKS = [
     id: "t2",
   },
   {
-    label: "add database (firebase)",
+    label: "Add database (firebase)",
     id: "t3",
   },
   {
-    label: "add authentification",
+    label: "Add authentification",
     id: "t4",
   },
   {
-    label: "add my own database on server using nodeJS",
+    label: "Add my own database on server using nodeJS",
     id: "t5",
   },
 ];
