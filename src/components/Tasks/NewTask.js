@@ -23,6 +23,7 @@ const NewTask = () => {
     if (isEmpty) {
       return;
     } else if (!isEmpty) {
+      console.log(`sending new todo: ${inputRef.current.value.trim()}`);
       todosCtx.addTodo(inputRef.current.value);
       setWasSubmitted(false);
     }

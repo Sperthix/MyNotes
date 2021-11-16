@@ -9,6 +9,8 @@ const defaultTodos = {
 
 const todosReducer = (state, action) => {
   if (action.type === "ADD") {
+      console.log('adding todo in provider');
+      console.log(action.payload);
     return {};
   }
   if (action.type === "REMOVE") {
@@ -18,6 +20,7 @@ const todosReducer = (state, action) => {
 };
 
 const TodosProvider = (props) => {
+  // dopozeraj udemy, ak neprides na to, co je tu zle urobene, prerob useReducer na useState a skus to tak. Pri najhrosom to prepis cez props chain
   const [todosState, dispatchTodosAction] = useReducer(
     todosReducer,
     defaultTodos
