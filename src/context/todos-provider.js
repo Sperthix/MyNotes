@@ -1,62 +1,53 @@
-import { useReducer } from "react";
+import { useState } from "react";
 
 import TodosContext from "./todos-context";
 
-const defaultTodos = {
-  todos: [],
-  user: "DUMMY_USER",
-};
-
-const todosReducer = (state, action) => {
-  if (action.type === "ADD") {
-      console.log('adding todo in provider');
-      console.log(action.payload);
-    return {};
-  }
-  if (action.type === "REMOVE") {
-  }
-  if (action.type === "CLEAR") {
-  }
-};
+const DUMMY_TODOS = [
+  {
+    label: "Create ToDo list",
+    id: "t1",
+  },
+  {
+    label: "Add multiple users",
+    id: "t2",
+  },
+  {
+    label: "Add database (firebase)",
+    id: "t3",
+  },
+  {
+    label: "Add authentification",
+    id: "t4",
+  },
+  {
+    label: "Add my own database on server using nodeJS",
+    id: "t5",
+  },
+];
 
 const TodosProvider = (props) => {
-  // dopozeraj udemy, ak neprides na to, co je tu zle urobene, prerob useReducer na useState a skus to tak. Pri najhrosom to prepis cez props chain
-  const [todosState, dispatchTodosAction] = useReducer(
-    todosReducer,
-    defaultTodos
-  );
+  const [todos, setTodos] = useState(DUMMY_TODOS);
 
   const addTodoHandler = (todo) => {
-    dispatchTodosAction({
-      type: "ADD",
-      payload: todo,
-    });
+    console.log("adding new todo to the list in provider");
+    setTodos([...todos, todo]);
   };
 
-  const removeTodoHandler = (id) => {
-    dispatchTodosAction({
-      type: "REMOVE",
-      payload: id,
-    });
-  };
+  const removeTodoHandler = (id) => {};
 
   const clearTodosHandler = () => {
-    dispatchTodosAction({ type: "CLEAR" });
+    setTodos([]);
   };
 
-  console.log("hello?");
-  console.log(DUMMY_TODOS);
-
-  const finalContext = {
-    todos: todosState.todos,
-    user: todosState.user,
+  const todosContext = {
+    todos: todos,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
     clearTodos: clearTodosHandler,
   };
 
   return (
-    <TodosContext.Provider value={finalContext}>
+    <TodosContext.Provider value={todosContext}>
       {props.children}
     </TodosContext.Provider>
   );

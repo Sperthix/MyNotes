@@ -25,7 +25,6 @@ const DUMMY_TODOS = [
 
 const TodosContext = React.createContext({
     todos: DUMMY_TODOS,
-    user: "Dummy user",
     addTodo: (todo) => {},
     removeTodo: (id) => {},
     clearTodos: () => {}

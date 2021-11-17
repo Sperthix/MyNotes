@@ -24,7 +24,9 @@ const NewTask = () => {
       return;
     } else if (!isEmpty) {
       console.log(`sending new todo: ${inputRef.current.value.trim()}`);
-      todosCtx.addTodo(inputRef.current.value);
+      const genId = `t${todosCtx.todos.length + 1}`;
+      console.log(genId);
+      todosCtx.addTodo({ label: inputRef.current.value, id: genId });
       setWasSubmitted(false);
     }
   };

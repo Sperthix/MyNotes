@@ -13,4 +13,9 @@
 
 .task label {
     font-size: 1.2rem;
+    text-align: left;
+}
+
+.task svg {
+    text-align: right;
 }
