@@ -8,6 +8,7 @@ const NewTask = () => {
   const inputRef = useRef();
   const [isEmpty, setIsEmpty] = useState(true);
   const [wasSubmitted, setWasSubmitted] = useState(false);
+  let newId;
 
   const inputChangeHandler = () => {
     if (inputRef.current.value.trim().length === 0) {
@@ -17,16 +18,39 @@ const NewTask = () => {
     }
   };
 
+  const generateNewID = () => {
+    const newID = Math.floor(Math.random() * 5000);
+    return newID;
+  };
+
+  const checkForValidID = (newID) => {
+    for (let i = 0; i < todosCtx.todos.length; i++) {
+      if (newID === parseFloat(todosCtx.todos[i].id)) {
+        // console.log(`ID conflict. New ID: ${newID} usedID: ${todosCtx.todos[i].id}`);
+        return false;
+      }
+    }
+    // console.log(`adding to the list, new ID: ${newID}`);
+    return true
+  }
+
+  const addToList = () => {
+    newId = generateNewID();
+    if (checkForValidID(newId)) {
+      todosCtx.addTodo({ label: inputRef.current.value, id: newId });
+    }
+    else {
+      addToList();
+    }
+  }
+
   const submitNewTaskHandler = (event) => {
     event.preventDefault();
     setWasSubmitted(true);
     if (isEmpty) {
       return;
     } else if (!isEmpty) {
-      console.log(`sending new todo: ${inputRef.current.value.trim()}`);
-      const genId = `t${todosCtx.todos.length + 1}`;
-      console.log(genId);
-      todosCtx.addTodo({ label: inputRef.current.value, id: genId });
+      addToList();
       setWasSubmitted(false);
     }
   };

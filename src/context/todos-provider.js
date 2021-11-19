@@ -5,23 +5,23 @@ import TodosContext from "./todos-context";
 const DUMMY_TODOS = [
   {
     label: "Create ToDo list",
-    id: "t1",
+    id: "1",
   },
   {
     label: "Add multiple users",
-    id: "t2",
+    id: "2",
   },
   {
     label: "Add database (firebase)",
-    id: "t3",
+    id: "3",
   },
   {
     label: "Add authentification",
-    id: "t4",
+    id: "4",
   },
   {
     label: "Add my own database on server using nodeJS",
-    id: "t5",
+    id: "5",
   },
 ];
 
@@ -29,7 +29,6 @@ const TodosProvider = (props) => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
 
   const addTodoHandler = (todo) => {
-    console.log("adding new todo to the list in provider");
     setTodos([...todos, todo]);
   };
 

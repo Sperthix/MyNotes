@@ -4,7 +4,7 @@ import styles from "./Task.module.css";
 
 const Task = (props) => {
   const trashClickHandler = () => {
-    console.log("Trash click handler: " + props.id);
+    // console.log("Trash click handler: " + props.id);
     props.onDelete(props.id);
   };
 
