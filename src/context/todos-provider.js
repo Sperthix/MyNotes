@@ -33,7 +33,9 @@ const TodosProvider = (props) => {
     setTodos([...todos, todo]);
   };
 
-  const removeTodoHandler = (id) => {};
+  const removeTodoHandler = (id) => {
+    setTodos(todos.filter((item) => item.id !== id));
+  };
 
   const clearTodosHandler = () => {
     setTodos([]);
