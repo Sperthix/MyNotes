@@ -1,0 +1,31 @@
+list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+  font: inherit;
+  color: #e7eaf6;
+  background-color: #113f67;
+  margin: auto 0.2rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #113f67;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-color: #17e398;
+  border-color: #17e398;
+  color: black;
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #a2a8d3;
+  border: #113f67 solid 2px;
+  color: black;
+}

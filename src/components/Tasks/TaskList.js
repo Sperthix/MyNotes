@@ -11,7 +11,14 @@ const TaskList = () => {
   };
 
   const activeTasks = TodosCtx.todos.map((task) => {
-    return <Task label={task.label} key={task.id} id={task.id} onDelete={todoDeleteHandler}/>;
+    return (
+      <Task
+        label={task.label}
+        key={task.id}
+        id={task.id}
+        onDelete={todoDeleteHandler}
+      />
+    );
   });
 
   return <ul>{activeTasks}</ul>;
