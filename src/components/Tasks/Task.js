@@ -15,7 +15,6 @@ const Task = (props) => {
 
   const addToSideListHandler = () => {
     // console.log('Add to side list');
-    console.log(sideListCtx.list, sideListCtx.addItem);
     sideListCtx.addItem(props.label);
     props.onDelete(props.id);
   }

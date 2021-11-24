@@ -7,6 +7,7 @@ const TaskList = () => {
 
   const todoDeleteHandler = (id) => {
     // console.log("todoDeleteHandler: " + id)
+    console.log(TodosCtx);
     TodosCtx.removeTodo(id);
   };
 
