@@ -22,7 +22,6 @@ const Task = (props) => {
 
   return (
     <Fragment>
-      <SideListProvider>
         <li className={styles.task}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +52,6 @@ const Task = (props) => {
             />
           </svg>
         </li>
-      </SideListProvider>
     </Fragment>
   );
 };

@@ -14,19 +14,17 @@ const List = () => {
         label={item.label}
         key={item.id}
         id={item.id}
-        onDelete={sideListCtx.removeItem()}
+        onDelete={sideListCtx.removeItem}
       />
     );
   });
 
   return (
     <Card>
-      <SideListProvider>
         <ul className={styles.list}>{itemList}</ul>
         <button className={styles.button} type="submit">
           Submit
         </button>
-      </SideListProvider>
     </Card>
   );
 };
