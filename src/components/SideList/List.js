@@ -3,15 +3,9 @@ import { useContext } from "react";
 import styles from "./List.module.css";
 import SideListContext from "../../context/sideList-context";
 import Item from "./Item";
-import SideListProvider from "../../context/sideList-provider";
+import Card from "../UI/Card"
 
 const List = () => {
-
-  const delHandler = (id) => {
-    console.log("sem sa dostanem?")
-    console.log(sideListCtx);
-    sideListCtx.removeItem(id)
-  }
 
   const sideListCtx = useContext(SideListContext);
   const itemList = sideListCtx.list.map((item) => {
@@ -20,18 +14,18 @@ const List = () => {
         label={item.label}
         key={item.id}
         id={item.id}
-        onDelete={delHandler}
+        onDelete={sideListCtx.removeItem}
       />
     );
   });
 
   return (
-    <SideListProvider>
+    <Card>
         <ul className={styles.list}>{itemList}</ul>
         <button className={styles.button} type="submit">
           Submit
         </button>
-    </SideListProvider>
+    </Card>
   );
 };
 

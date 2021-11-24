@@ -12,10 +12,11 @@ const SideListProvider = (props) => {
 
   const addItemHandler = (newItem) => {
     console.log("im in sideList Provider");
+
     setSideList([
      ...sideList ,
       {
-        label: newItem.label,
+        label: newItem,
         id: Math.floor(Math.random() * 5000),
       },
     ]);
