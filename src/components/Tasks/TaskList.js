@@ -1,17 +1,18 @@
-import { useContext } from "react";
-import TodosContext from "../../context/todos-context";
+import { useDispatch, useSelector } from "react-redux";
+import { todosActions } from "../../context/todos-slice";
+
 import Task from "./Task";
 
 const TaskList = () => {
-  const TodosCtx = useContext(TodosContext);
+  const dispatch = useDispatch();
+  const todoList = useSelector((state) => state.todos.todos);
 
   const todoDeleteHandler = (id) => {
     // console.log("todoDeleteHandler: " + id)
-    console.log(TodosCtx);
-    TodosCtx.removeTodo(id);
+    dispatch(todosActions.removeTodo(id));
   };
 
-  const activeTasks = TodosCtx.todos.map((task) => {
+  const activeTasks = todoList.map((task) => {
     return (
       <Task
         label={task.label}

@@ -2,13 +2,8 @@ import { useState } from "react";
 
 import SideListContext from "./sideList-context";
 
-const DUMMY_ITEM = [{
-  label: "im dummy",
-  id: "1",
-}];
-
 const SideListProvider = (props) => {
-  const [sideList, setSideList] = useState(DUMMY_ITEM);
+  const [sideList, setSideList] = useState();
 
   const addItemHandler = (newItem) => {
     console.log("im in sideList Provider");

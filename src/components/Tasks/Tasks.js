@@ -1,13 +1,13 @@
-import TodosProvider from "../../context/todos-provider";
+import { Fragment } from "react";
 import NewTask from "./NewTask";
 import TaskList from "./TaskList";
 
 const Tasks = () => {
   return (
-    <TodosProvider>
+    <Fragment>
       <NewTask />
       <TaskList />
-    </TodosProvider>
+    </Fragment>
   );
 };
 

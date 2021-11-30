@@ -1,10 +1,13 @@
-import { useContext, useRef, useState } from "react";
-import TodosContext from "../../context/todos-context";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { todosActions } from "../../context/todos-slice";
 
 import styles from "./NewTask.module.css";
 
 const NewTask = () => {
-  const todosCtx = useContext(TodosContext);
+  const dispatch = useDispatch();
+  const todoList = useSelector((state) => state.todos.todos);
   const inputRef = useRef();
   const [isEmpty, setIsEmpty] = useState(true);
   const [wasSubmitted, setWasSubmitted] = useState(false);
@@ -24,25 +27,25 @@ const NewTask = () => {
   };
 
   const checkForValidID = (newID) => {
-    for (let i = 0; i < todosCtx.todos.length; i++) {
-      if (newID === parseFloat(todosCtx.todos[i].id)) {
+    for (let i = 0; i < todoList.length; i++) {
+      if (newID === parseFloat(todoList[i].id)) {
         // console.log(`ID conflict. New ID: ${newID} usedID: ${todosCtx.todos[i].id}`);
         return false;
       }
     }
     // console.log(`adding to the list, new ID: ${newID}`);
-    return true
-  }
+    return true;
+  };
 
   const addToList = () => {
     newId = generateNewID();
     if (checkForValidID(newId)) {
-      todosCtx.addTodo({ label: inputRef.current.value, id: newId });
-    }
-    else {
+      console.log("dispatching new todo");
+      dispatch(todosActions.addNewtodo({ label: inputRef.current.value, id: newId }));
+    } else {
       addToList();
     }
-  }
+  };
 
   const submitNewTaskHandler = (event) => {
     event.preventDefault();

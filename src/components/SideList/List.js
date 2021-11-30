@@ -1,20 +1,24 @@
-import { useContext } from "react";
-
 import styles from "./List.module.css";
-import SideListContext from "../../context/sideList-context";
 import Item from "./Item";
 import Card from "../UI/Card"
+import { useDispatch, useSelector } from "react-redux";
+import { sideListActions } from "../../context/sideList-slice";
 
 const List = () => {
+  const dispatch = useDispatch();
+  const sideList = useSelector(state => state.sideList.list);
 
-  const sideListCtx = useContext(SideListContext);
-  const itemList = sideListCtx.list.map((item) => {
+  const odDeleteHandler = (id) => {
+    dispatch(sideListActions.removeItem(id));
+  }
+
+  const itemList = sideList.map((item) => {
     return (
       <Item
         label={item.label}
         key={item.id}
         id={item.id}
-        onDelete={sideListCtx.removeItem}
+        onDelete={odDeleteHandler}
       />
     );
   });
