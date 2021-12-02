@@ -8,7 +8,6 @@ const TaskList = () => {
   const todoList = useSelector((state) => state.todos.todos);
 
   const todoDeleteHandler = (id) => {
-    // console.log("todoDeleteHandler: " + id)
     dispatch(todosActions.removeTodo(id));
   };
 

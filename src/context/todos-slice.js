@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const DUMMY_TODOS = [
-  {
-    label: "Create ToDo list",
-    id: "1",
-  },
-  {
-    label: "Add multiple users",
-    id: "2",
-  },
-  {
-    label: "Add database (firebase)",
-    id: "3",
-  },
-  {
-    label: "Add authentification",
-    id: "4",
-  },
-  {
-    label: "Add my own database on server using nodeJS",
-    id: "5",
-  },
-];
+// const DUMMY_TODOS = [
+//   {
+//     label: "Create ToDo list",
+//     id: "1",
+//   },
+//   {
+//     label: "Add multiple users",
+//     id: "2",
+//   },
+//   {
+//     label: "Add database (firebase)",
+//     id: "3",
+//   },
+//   {
+//     label: "Add authentification",
+//     id: "4",
+//   },
+//   {
+//     label: "Add my own database on server using nodeJS",
+//     id: "5",
+//   },
+// ];
 
 const todoSlice = createSlice({
   name: "todos",
-  initialState: { todos: DUMMY_TODOS },
+  initialState: { todos: [] },
   reducers: {
     addNewtodo(state, action) {
       state.todos = state.todos.concat({
@@ -36,6 +36,9 @@ const todoSlice = createSlice({
     removeTodo(state, action) {
         state.todos = state.todos.filter((item) => item.id !== action.payload);
     },
+    replaceTodos(state, action) {
+      state.todos = action.payload.todos;
+    }
   },
 });
 
