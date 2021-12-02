@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
+import { sideListActions } from "../../context/sideList-slice";
 import styles from "./Item.module.css";
 
 const Item = (props) => {
+  const dispatch = useDispatch();
+
+  const onDeleteHandler = () => {
+    dispatch(sideListActions.removeItem(props.id));
+  };
 
   return (
     <li className={styles.item}>
@@ -12,7 +19,7 @@ const Item = (props) => {
         fill="currentColor"
         className="bi bi-trash"
         viewBox="0 0 16 16"
-        onClick={props.onDelete(props.id)}
+        onClick={onDeleteHandler}
       >
         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
         <path

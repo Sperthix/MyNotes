@@ -18,7 +18,6 @@ const SideListProvider = (props) => {
   };
 
   const removeItemHandler = (id) => {
-    console.log("delete - CTX provider")
     setSideList(sideList.filter((item) => item.id !== id));
   };
 

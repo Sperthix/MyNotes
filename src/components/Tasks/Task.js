@@ -1,12 +1,11 @@
 import { Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { sideListActions } from "../../context/sideList-slice";
 
 import styles from "./Task.module.css";
 
 const Task = (props) => {
   const dispatch = useDispatch();
-  const sideList = useSelector((state) => state.sideList.list);
 
   const trashClickHandler = () => {
     // console.log("Trash click handler: " + props.id);

@@ -18,7 +18,7 @@ const sideListSlice = createSlice({
             return false;
           }
         }
-         console.log(`adding to the list, new ID: ${newID}`);
+        //  console.log(`adding to the list, new ID: ${newID}`);
         return true;
       };
 
@@ -35,7 +35,9 @@ const sideListSlice = createSlice({
       };
       addToList();
     },
-    removeItem() {},
+    removeItem(state, action) {
+      state.list = state.list.filter((item) => item.id !== action.payload)
+    },
     clearList() {},
   },
 });
