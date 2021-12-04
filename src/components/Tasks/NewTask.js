@@ -9,11 +9,13 @@ const NewTask = () => {
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todos.todos);
   const inputRef = useRef();
+  const [newTaskValue, setNewTaskValue] = useState("");
   const [isEmpty, setIsEmpty] = useState(true);
   const [wasSubmitted, setWasSubmitted] = useState(false);
   let newId;
 
   const inputChangeHandler = () => {
+    setNewTaskValue(inputRef.current.value);
     if (inputRef.current.value.trim().length === 0) {
       setIsEmpty(true);
     } else {
@@ -41,6 +43,7 @@ const NewTask = () => {
     newId = generateNewID();
     if (checkForValidID(newId)) {
       dispatch(todosActions.addNewtodo({ label: inputRef.current.value, id: newId }));
+      setNewTaskValue("");
     } else {
       addToList();
     }
@@ -66,6 +69,7 @@ const NewTask = () => {
       <div className={inputStyles}>
         <label htmlFor="newTask">Type in new task</label>
         <input
+          value={newTaskValue}
           id="newTask"
           type="text"
           ref={inputRef}
