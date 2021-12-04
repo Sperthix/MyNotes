@@ -40,6 +40,7 @@
   border: 1px solid #113f67;
   border-radius: 5px;
   cursor: pointer;
+  max-width: 200px;
 }
 
 .form button:hover,

@@ -1,13 +1,14 @@
-import { Fragment } from "react";
 import NewTask from "./NewTask";
 import TaskList from "./TaskList";
 
+import styles from './Tasks.module.css';
+
 const Tasks = () => {
   return (
-    <Fragment>
+    <div className={styles.tasks}>
       <NewTask />
       <TaskList />
-    </Fragment>
+    </div>
   );
 };
 

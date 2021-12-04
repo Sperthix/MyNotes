@@ -4,6 +4,8 @@ import { fetchTodoList } from "./context/todos-actions";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import styles from './App.module.css';
+
 function App() {
 
   const dispatch = useDispatch();
@@ -13,9 +15,9 @@ function App() {
   }, [dispatch])
 
   return (
-    <div>
-      <Tasks />
-      <List />
+    <div className={styles.app}>
+      <Tasks className={styles.todos} />
+      <List className={styles.sideList}/>
     </div>
   );
 }

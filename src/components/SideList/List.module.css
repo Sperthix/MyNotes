@@ -1,10 +1,13 @@
-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.list {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #151515;
+  border-radius: 30px;
+  margin: 1rem;
 }
 
-button {
+.button {
   font: inherit;
   color: #e7eaf6;
   background-color: #113f67;

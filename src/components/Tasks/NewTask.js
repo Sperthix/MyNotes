@@ -40,7 +40,6 @@ const NewTask = () => {
   const addToList = () => {
     newId = generateNewID();
     if (checkForValidID(newId)) {
-      console.log("dispatching new todo");
       dispatch(todosActions.addNewtodo({ label: inputRef.current.value, id: newId }));
     } else {
       addToList();

@@ -1,0 +1,14 @@
+.app {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-areas: "todos sideList";
+  grid-gap: 1rem;
+}
+
+.todos {
+  grid-area: todos;
+}
+
+.sideList {
+  grid-area: sideList;
+}
