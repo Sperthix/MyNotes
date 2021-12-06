@@ -1,14 +1,11 @@
 .app {
   display: grid;
-  grid-template-columns: 5fr 2fr;
-  grid-template-areas: "todos sideList";
-  grid-gap: 1rem;
-}
 
-.todos {
-  grid-area: todos;
-}
+  grid-template-areas:
+    "head head"
+    "todos sideList"
+    "todos sideList";
 
-.sideList {
-  grid-area: sideList;
+  grid-template-columns: repeat(2fr, 1fr);
+  grid-gap: 0px;
 }

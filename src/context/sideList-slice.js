@@ -40,7 +40,9 @@ const sideListSlice = createSlice({
     removeItem(state, action) {
       state.list = state.list.filter((item) => item.id !== action.payload);
     },
-    clearList() {},
+    clearList(state) {
+      state.list = [];
+    },
   },
 });
 

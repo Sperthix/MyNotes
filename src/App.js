@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./App.module.css";
+import Navigation from "./components/UI/Navigation";
 
 function App() {
   const sideList = useSelector((state) => state.sideList.list);
@@ -24,8 +25,9 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Tasks className={styles.todos} />
-      {!isSideListEmpty && <List className={styles.sideList} />}
+      <Navigation className={styles.nav}/>
+      <Tasks className={styles.todos}/>
+      {!isSideListEmpty && <List className={styles.sideList}/>}
     </div>
   );
 }

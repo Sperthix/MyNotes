@@ -2,6 +2,7 @@ import styles from "./List.module.css";
 import Item from "./Item";
 import { useSelector, useDispatch } from "react-redux";
 import { sendTodoList } from "../../context/todos-actions";
+import { sideListActions } from "../../context/sideList-slice";
 
 const List = () => {
   const sideList = useSelector((state) => state.sideList.list);
@@ -9,6 +10,7 @@ const List = () => {
   const dispatch = useDispatch();
 
   const buttonClickHandler = () => {
+    dispatch(sideListActions.clearList())
     dispatch(sendTodoList(todos));
   };
 
@@ -18,6 +20,7 @@ const List = () => {
 
   return (
     <div className={styles.list}>
+      <h1>Already done</h1>
       <ul className={styles.list}>{itemList}</ul>
       <button
         className={styles.button}
