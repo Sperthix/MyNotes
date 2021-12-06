@@ -14,7 +14,9 @@ const sideListSlice = createSlice({
       const checkForValidID = (newID) => {
         for (let i = 0; i < state.list.length; i++) {
           if (newID === parseFloat(state.list[i].id)) {
-             console.log(`ID conflict. New ID: ${newID} usedID: ${state.list[i].id}`);
+            console.log(
+              `ID conflict. New ID: ${newID} usedID: ${state.list[i].id}`
+            );
             return false;
           }
         }
@@ -36,7 +38,7 @@ const sideListSlice = createSlice({
       addToList();
     },
     removeItem(state, action) {
-      state.list = state.list.filter((item) => item.id !== action.payload)
+      state.list = state.list.filter((item) => item.id !== action.payload);
     },
     clearList() {},
   },
