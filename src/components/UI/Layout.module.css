@@ -1,0 +1,11 @@
+.page {
+    display: grid;
+  
+    grid-template-areas:
+      "head head"
+      "todos sideList"
+      "todos sideList";
+  
+    grid-template-columns: repeat(2fr, 1fr);
+    grid-gap: 0px;
+  }

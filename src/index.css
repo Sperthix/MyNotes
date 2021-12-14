@@ -17,6 +17,21 @@ ul {
   padding: 0;
 }
 
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #e7eaf6;
+  cursor: pointer;
+}
+
+.centered {
+  margin: 1rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* colors:
 
  backgrounb (grey): #0c0c0d
