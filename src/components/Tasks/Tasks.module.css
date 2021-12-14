@@ -1,32 +1,36 @@
-.list {
-  grid-area: sideList;
+.tasks {
+  grid-area: todos;
 
   grid-row-start: 2;
-  grid-column-start: 4;
+  grid-column-start: 1;
 
   grid-row-end: 3;
-  grid-column-end: 5;
-  
+  grid-column-end: 4;
 
-  justify-items: center;
-  align-items: center;
   background-color: #151515;
   border-radius: 30px;
   margin: 1rem;
 }
 
-.list h1 {
+.tasks h1 {
   text-align: center;
   color: #e7eaf6;
 }
 
+.sideList {
+  margin-top: 200px;
+}
+
 .button {
   display: block;
+  width: 150px;
+  max-width: 200px;
   font: inherit;
   color: #e7eaf6;
   background-color: #113f67;
-  padding: 0.5rem 1.5rem;
   margin: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
   border: 1px solid #113f67;
   border-radius: 5px;
   cursor: pointer;

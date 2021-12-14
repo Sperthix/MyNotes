@@ -1,12 +1,11 @@
-import { Fragment, useContext } from "react";
-import SideListContext from "../../context/sideList-context";
-import SideListProvider from "../../context/sideList-provider";
+import { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { sideListActions } from "../../context/sideList-slice";
 
 import styles from "./Task.module.css";
 
 const Task = (props) => {
-
-  const sideListCtx = useContext(SideListContext);
+  const dispatch = useDispatch();
 
   const trashClickHandler = () => {
     // console.log("Trash click handler: " + props.id);
@@ -15,7 +14,7 @@ const Task = (props) => {
 
   const addToSideListHandler = () => {
     // console.log('Add to side list');
-    sideListCtx.addItem(props.label);
+    dispatch(sideListActions.addNewItem({ label: props.label, id: props.id}))
     props.onDelete(props.id);
   }
 

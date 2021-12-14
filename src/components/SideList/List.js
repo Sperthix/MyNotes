@@ -1,31 +1,35 @@
-import { useContext } from "react";
-
 import styles from "./List.module.css";
-import SideListContext from "../../context/sideList-context";
 import Item from "./Item";
-import Card from "../UI/Card"
+import { useSelector, useDispatch } from "react-redux";
+import { sendTodoList } from "../../context/todos-actions";
+import { sideListActions } from "../../context/sideList-slice";
 
 const List = () => {
+  const sideList = useSelector((state) => state.sideList.list);
+  const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useDispatch();
 
-  const sideListCtx = useContext(SideListContext);
-  const itemList = sideListCtx.list.map((item) => {
-    return (
-      <Item
-        label={item.label}
-        key={item.id}
-        id={item.id}
-        onDelete={sideListCtx.removeItem}
-      />
-    );
+  const buttonClickHandler = () => {
+    dispatch(sideListActions.clearList())
+    dispatch(sendTodoList(todos));
+  };
+
+  const itemList = sideList.map((item) => {
+    return <Item label={item.label} key={item.id} id={item.id} />;
   });
 
   return (
-    <Card>
-        <ul className={styles.list}>{itemList}</ul>
-        <button className={styles.button} type="submit">
-          Submit
-        </button>
-    </Card>
+    <div className={styles.list}>
+      <h1>Already done</h1>
+      <ul className={styles.list}>{itemList}</ul>
+      <button
+        className={styles.button}
+        type="submit"
+        onClick={buttonClickHandler}
+      >
+        Submit
+      </button>
+    </div>
   );
 };
 
