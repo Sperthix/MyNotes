@@ -1,12 +1,4 @@
 .tasks {
-  grid-area: todos;
-
-  grid-row-start: 2;
-  grid-column-start: 1;
-
-  grid-row-end: 3;
-  grid-column-end: 4;
-
   background-color: #151515;
   border-radius: 30px;
   margin: 1rem;

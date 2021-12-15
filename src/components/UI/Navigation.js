@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
@@ -6,10 +8,14 @@ const Navigation = () => {
       <h1>Sperthix.hopto.org</h1>
       <ul>
         <li>
-          <button>Other Apps</button>
+          <Link className={styles.link} to="/home">
+            Home
+          </Link>
         </li>
         <li>
-          <button>Logout</button>
+          <Link className={styles.link} to="/home">
+            Logout
+          </Link>
         </li>
       </ul>
     </nav>

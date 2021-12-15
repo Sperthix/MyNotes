@@ -14,14 +14,14 @@ const Tasks = () => {
   };
 
   return (
-    <div className={styles.tasks}>
+    <section className={styles.tasks}>
       <h1>ToDo List</h1>
       <NewTask />
       <TaskList />
       <button className={styles.button} onClick={saveDataHandler}>
         Save
       </button>
-    </div>
+    </section>
   );
 };
 

@@ -19,9 +19,9 @@ const List = () => {
   });
 
   return (
-    <div className={styles.list}>
+    <section className={styles.list}>
       <h1>Already done</h1>
-      <ul className={styles.list}>{itemList}</ul>
+      <ul>{itemList}</ul>
       <button
         className={styles.button}
         type="submit"
@@ -29,7 +29,7 @@ const List = () => {
       >
         Submit
       </button>
-    </div>
+    </section>
   );
 };
 

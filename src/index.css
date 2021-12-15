@@ -25,6 +25,7 @@ ul {
 }
 
 .centered {
+  color: #e7eaf6;
   margin: 1rem auto;
   text-align: center;
   display: flex;

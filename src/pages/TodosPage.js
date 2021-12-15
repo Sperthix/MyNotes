@@ -5,6 +5,8 @@ import { fetchTodoList } from "../context/todos-actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import styles from "./TodoPages.module.css";
+
 const TodosPage = () => {
   const sideList = useSelector((state) => state.sideList.list);
 
@@ -22,11 +24,11 @@ const TodosPage = () => {
   const isSideListEmpty = sideListEmptyCheck();
 
   return (
-    <section>
-      <Tasks />
-      {!isSideListEmpty && <List />}
-    </section>
+    <div className={styles.page}>
+      <Tasks className={styles.tasks} />
+      {!isSideListEmpty && <List className={styles.sidebar} />}
+    </div>
   );
-}
+};
 
 export default TodosPage;

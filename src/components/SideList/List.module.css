@@ -1,13 +1,4 @@
 .list {
-  grid-area: sideList;
-
-  grid-row-start: 2;
-  grid-column-start: 4;
-
-  grid-row-end: 3;
-  grid-column-end: 5;
-  
-
   justify-items: center;
   align-items: center;
   background-color: #151515;

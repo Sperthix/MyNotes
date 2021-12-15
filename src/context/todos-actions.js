@@ -6,10 +6,12 @@ export const fetchTodoList = () => {
       const response = await fetch(
         "https://react-tutorial-dd1ce-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json"
       );
+      console.log(response);
       if (!response.ok) {
         throw new Error("Failed to fetch data from database.");
       }
       const data = await response.json();
+      console.log(data);
       return data;
     };
     try {

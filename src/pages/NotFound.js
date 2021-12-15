@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
+
 const NotFound = () => {
   return (
-    <div>
-      <p>Page not found!</p>
-    </div>
+    <section>
+      <p className="centered">Page not found!</p>
+      <Link className="link centered" to="/home">
+        Go home, ur drunk
+      </Link>
+    </section>
   );
 };
 
