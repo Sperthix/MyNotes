@@ -13,8 +13,8 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link className={styles.link} to="/home">
-            Logout
+          <Link className={styles.link} to="/login">
+            Login
           </Link>
         </li>
       </ul>
