@@ -19,7 +19,8 @@ export const sendSignUpRequest = (email, password) => {
         }
       );
       if (!response.ok) {
-        throw new Error(response.status);
+        const error = await response.json();
+        throw new Error(error.error.message);
       }
       const data = await response.json();
       return data;
@@ -50,7 +51,8 @@ export const sendLoginRequest = (email, password) => {
         }
       );
       if (!response.ok) {
-        throw new Error(response.status);
+        const error = await response.json();
+        throw new Error(error.error.message);;
       }
       const data = await response.json();
       return data;
