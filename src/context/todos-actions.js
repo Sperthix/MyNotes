@@ -4,7 +4,7 @@ export const fetchTodoList = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://react-tutorial-dd1ce-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json"
+        "https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json"
       );
       console.log(response);
       if (!response.ok) {
@@ -31,7 +31,7 @@ export const sendTodoList = (todos) => {
   return async () => {
     const sendRequest = async () => {
       const response = await fetch(
-        "https://react-tutorial-dd1ce-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json",
+        "https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json",
         {
           method: "PUT",
           body: JSON.stringify({
