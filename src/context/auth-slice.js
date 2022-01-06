@@ -21,7 +21,6 @@ const retrieveStoredToken = () => {
   const remainingTime = calculateRemainingTime(storedExpirationDate);
 
   if (remainingTime <= 3600) {
-    console.log(remainingTime, storedExpirationDate, storedUid);
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
     localStorage.removeItem("uid");
@@ -39,11 +38,16 @@ const tokenData = retrieveStoredToken();
 let initialToken;
 let initialUid;
 let duration;
+let isLoggedIn = false;
 
 if (tokenData) {
   initialToken = tokenData.token;
   initialUid = tokenData.uid;
   duration = tokenData.duration;
+}
+
+if (initialUid) {
+  isLoggedIn = true;
 }
 
 const authSlice = createSlice({
@@ -52,7 +56,7 @@ const authSlice = createSlice({
     token: initialToken,
     uid: initialUid,
     loginDuration: duration,
-    isLoggedIn: false,
+    isLoggedIn: isLoggedIn,
   },
   reducers: {
     login(state, action) {
