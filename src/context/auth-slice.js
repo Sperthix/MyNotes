@@ -8,7 +8,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.uid = action.payload.uid;
       state.isLoggedIn = true;
-      console.log(action.payload);
+      // console.log(action.payload);
       localStorage.setItem("uid", state.uid);
       localStorage.setItem("token", state.token);
     },

@@ -5,6 +5,7 @@ let uid = localStorage.getItem('uid');
 export const fetchTodoList = () => {
   return async (dispatch) => {
     const fetchData = async () => {
+      uid = localStorage.getItem('uid');
       const response = await fetch(
         `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`
       );
@@ -13,7 +14,7 @@ export const fetchTodoList = () => {
         throw new Error("Failed to fetch data from database.");
       }
       const data = await response.json();
-       console.log(data);
+      //  console.log(data);
       return data;
     };
     try {
@@ -32,6 +33,7 @@ export const fetchTodoList = () => {
 export const sendTodoList = (todos) => {
   return async () => {
     const sendRequest = async () => {
+      uid = localStorage.getItem('uid');
       const response = await fetch(
         `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`,
         {
