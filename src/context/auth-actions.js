@@ -1,6 +1,6 @@
 import { authActions } from "./auth-slice";
 
-const API_KEY = "AIzaSyBzKwqKdqestLKOA9NrXnqCm_J502w3MyU";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const sendSignUpRequest = (email, password) => {
   // returns an async function
@@ -27,7 +27,7 @@ export const sendSignUpRequest = (email, password) => {
     };
     try {
       await sendSignUpRequest();
-      console.log('User successfully created')
+      console.log("User successfully created");
     } catch (error) {
       alert(error.message);
     }
@@ -52,16 +52,17 @@ export const sendLoginRequest = (email, password) => {
       );
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.error.message);;
+        throw new Error(error.error.message);
       }
       const data = await response.json();
       return data;
     };
     try {
-      const signUpData = await sendSignUpRequest();
+      const signInData = await sendSignUpRequest();
       dispatch(
         authActions.login({
-          token: signUpData.idToken,
+          token: signInData.idToken,
+          uid: signInData.localId,
         })
       );
     } catch (error) {

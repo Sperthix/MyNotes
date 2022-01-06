@@ -8,9 +8,6 @@ const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthorized = useSelector((state) => state.auth.isLoggedIn);
-
-  console.log(isAuthorized);
-
   
   const goHome = () => {
     navigate("/welcome");

@@ -1,17 +1,19 @@
 import { todosActions } from "./todos-slice";
 
+let uid = localStorage.getItem('uid');
+
 export const fetchTodoList = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json"
+        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`
       );
-      console.log(response);
+      // console.log(response);
       if (!response.ok) {
         throw new Error("Failed to fetch data from database.");
       }
       const data = await response.json();
-      console.log(data);
+       console.log(data);
       return data;
     };
     try {
@@ -31,7 +33,7 @@ export const sendTodoList = (todos) => {
   return async () => {
     const sendRequest = async () => {
       const response = await fetch(
-        "https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/todo-list.json",
+        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`,
         {
           method: "PUT",
           body: JSON.stringify({
