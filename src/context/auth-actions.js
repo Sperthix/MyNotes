@@ -59,10 +59,14 @@ export const sendLoginRequest = (email, password) => {
     };
     try {
       const signInData = await sendSignUpRequest();
+      const expirationTime = new Date(
+        new Date().getTime() + +signInData.expiresIn * 1000
+      );
       dispatch(
         authActions.login({
           token: signInData.idToken,
           uid: signInData.localId,
+          loginDuration: expirationTime.toString(),
         })
       );
     } catch (error) {

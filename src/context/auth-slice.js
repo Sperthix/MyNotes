@@ -1,21 +1,72 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// calculate remaining time for auth token
+const calculateRemainingTime = (expirationTime) => {
+  console.log(expirationTime);
+
+  const currentTime = new Date().getTime();
+  const adjExpirationTime = new Date(expirationTime).getTime();
+  const remainingDuration = adjExpirationTime - currentTime;
+
+  console.log(remainingDuration);
+  return remainingDuration;
+};
+
+// check for stored token
+const retrieveStoredToken = () => {
+  const storedToken = localStorage.getItem("token");
+  const storedUid = localStorage.getItem("uid");
+  const storedExpirationDate = localStorage.getItem("expiresAt");
+
+  const remainingTime = calculateRemainingTime(storedExpirationDate);
+
+  if (remainingTime <= 3600) {
+    console.log(remainingTime, storedExpirationDate, storedUid);
+    localStorage.removeItem("token");
+    localStorage.removeItem("expirationTime");
+    localStorage.removeItem("uid");
+    return null;
+  }
+
+  return {
+    token: storedToken,
+    uid: storedUid,
+    duration: remainingTime,
+  };
+};
+
+const tokenData = retrieveStoredToken();
+let initialToken;
+let initialUid;
+let duration;
+
+if (tokenData) {
+  initialToken = tokenData.token;
+  initialUid = tokenData.uid;
+  duration = tokenData.duration;
+}
+
 const authSlice = createSlice({
   name: "auth",
-  initialState: { token: "", uid: "", isLoggedIn: false },
+  initialState: {
+    token: initialToken,
+    uid: initialUid,
+    loginDuration: duration,
+    isLoggedIn: false,
+  },
   reducers: {
     login(state, action) {
       state.token = action.payload.token;
       state.uid = action.payload.uid;
       state.isLoggedIn = true;
-      // console.log(action.payload);
       localStorage.setItem("uid", state.uid);
       localStorage.setItem("token", state.token);
+      localStorage.setItem("expiresAt", action.payload.loginDuration);
     },
     logout(state) {
       state.token = "";
       state.isLoggedIn = false;
-      localStorage.removeItem("uid")
+      localStorage.removeItem("uid");
       localStorage.removeItem("token");
     },
   },
