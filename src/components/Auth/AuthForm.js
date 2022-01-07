@@ -35,6 +35,7 @@ const AuthForm = (props) => {
           passwordInputRef.current.value
         )
       );
+      navigate("/profile");
     } else {
       // *TODO* add form verification
       dispatch(
@@ -43,6 +44,7 @@ const AuthForm = (props) => {
           passwordInputRef.current.value
         )
       );
+      navigate("/login");
     }
   };
 
@@ -63,7 +65,13 @@ const AuthForm = (props) => {
       <form onSubmit={submitHandler}>
         <div className={styles.userInput}>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" ref={emailInputRef} required></input>
+          <input
+            type="email"
+            id="email"
+            ref={emailInputRef}
+            placeholder="Enter your email"
+            required
+          ></input>
         </div>
         <div className={styles.userInput}>
           <label htmlFor="password">Password</label>
@@ -71,6 +79,7 @@ const AuthForm = (props) => {
             type="password"
             id="password"
             ref={passwordInputRef}
+            placeholder="Enter your password"
             required
           ></input>
         </div>
@@ -81,6 +90,7 @@ const AuthForm = (props) => {
               type="password"
               id="password2"
               ref={password2InputRef}
+              placeholder="And repeat it"
               required
             ></input>
           </div>

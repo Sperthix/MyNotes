@@ -2,13 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // calculate remaining time for auth token
 const calculateRemainingTime = (expirationTime) => {
-  console.log(expirationTime);
-
   const currentTime = new Date().getTime();
   const adjExpirationTime = new Date(expirationTime).getTime();
   const remainingDuration = adjExpirationTime - currentTime;
 
-  console.log(remainingDuration);
   return remainingDuration;
 };
 
