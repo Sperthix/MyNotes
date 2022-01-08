@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { userDetailsActions } from "../../context/userDetail-slice";
 
 import {
   sendSignUpRequest,
@@ -25,6 +26,19 @@ const AuthForm = (props) => {
     if (props.from === "login") setHasAcc(true);
     else setHasAcc(false);
   }, [props.from]);
+
+  useEffect(() => {
+    // clear old data before loggin in new user - not good implementation, but it works for now (:
+    dispatch(
+      userDetailsActions.setUserData({
+        name: "",
+        username: "",
+        age: "",
+        email: "",
+        address: "",
+      })
+    );
+  });
 
   const submitHandler = (event) => {
     event.preventDefault();

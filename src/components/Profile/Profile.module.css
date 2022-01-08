@@ -28,3 +28,49 @@
   margin-left: 80%;
   padding: 0.5rem 1rem;
 }
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  margin-bottom: 1rem;
+}
+.label {
+  grid-column: 1 / 2;
+  justify-self: right;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.data {
+  grid-column: 2 / 3;
+  justify-self: left;
+  margin: 0;
+  padding: 0;
+}
+
+.change {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.input {
+  border: #113f67 1px solid;
+  border-radius: 10px;
+  margin: auto 0.2rem;
+  padding: 0.5rem;
+  max-width: 300px;
+}
+
+.submitButton {
+  grid-column: 1 / 3;
+  color: #e7eaf6;
+  background-color: #113f67;
+  margin: auto;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #113f67;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 200px;
+}

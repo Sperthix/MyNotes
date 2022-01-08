@@ -1,25 +1,30 @@
+import { useSelector } from "react-redux";
+
+import styles from "./Profile.module.css";
+
 const ProfileDisplay = () => {
+  const userDetails = useSelector((state) => state.userDetails.details);
+
   return (
     <section>
-      <ul>
-        <li>
-          <p>Full name</p>
-        </li>
-        <li>
-          <p>Username</p>
-        </li>
-        <li>
-          <p>Age</p>
-        </li>
-        <li>
-          <p>Email</p>
-        </li>
-        <li>
-          <p>Full name</p>
-        </li>
-      </ul>
-      <div>Change email address</div>
-      <div>Change password</div>
+      <div className={styles.list}>
+        <p className={styles.label}>Full name</p>
+        <p className={styles.data}>{userDetails.name}</p>
+
+        <p className={styles.label}>Username</p>
+        <p className={styles.data}>{userDetails.username}</p>
+
+        <p className={styles.label}>Age</p>
+        <p className={styles.data}>{userDetails.age}</p>
+
+        <p className={styles.label}>Email</p>
+        <p className={styles.data}>{userDetails.email}</p>
+
+        <p className={styles.label}>Address</p>
+        <p className={styles.data}>{userDetails.address}</p>
+      </div>
+      <div className={styles.change}>Change email address</div>
+      <div className={styles.change}>Change password</div>
     </section>
   );
 };

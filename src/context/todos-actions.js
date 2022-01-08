@@ -7,7 +7,7 @@ export const fetchTodoList = () => {
     const fetchData = async () => {
       uid = localStorage.getItem('uid');
       const response = await fetch(
-        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`
+        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}/todos.json`
       );
       // console.log(response);
       if (!response.ok) {
@@ -21,7 +21,7 @@ export const fetchTodoList = () => {
       const todosData = await fetchData();
       dispatch(
         todosActions.replaceTodos({
-          todos: todosData.todos || [],
+          todos: todosData.todoList || [],
         })
       );
     } catch (error) {
@@ -35,11 +35,11 @@ export const sendTodoList = (todos) => {
     const sendRequest = async () => {
       uid = localStorage.getItem('uid');
       const response = await fetch(
-        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`,
+        `https://multiapp-sperthix-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}/todos.json`,
         {
           method: "PUT",
           body: JSON.stringify({
-            todos: todos,
+            todoList: todos,
           }),
         }
       );
