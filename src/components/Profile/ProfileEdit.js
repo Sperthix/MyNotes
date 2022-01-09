@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sendUserDetails } from "../../context/userDetail-actions";
 
 import styles from "./Profile.module.css";
@@ -12,6 +12,7 @@ const ProfileEdit = (props) => {
   const enteredAddress = useRef();
 
   const dispatch = useDispatch();
+  const userDetails = useSelector((state) => state.userDetails.details);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -36,6 +37,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="fullName"
           type="text"
+          defaultValue="Matus Buci"
           ref={enteredName}
         ></input>
 
@@ -44,6 +46,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="username"
           type="text"
+          defaultValue={userDetails.username}
           ref={enteredUsername}
         ></input>
 
@@ -52,6 +55,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="age"
           type="number"
+          defaultValue={userDetails.age}
           ref={enteredAge}
         ></input>
 
@@ -60,6 +64,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="email"
           type="email"
+          defaultValue={userDetails.email}
           ref={enteredEmail}
         ></input>
 
@@ -68,6 +73,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="address"
           type="text"
+          defaultValue={userDetails.address}
           ref={enteredAddress}
         ></input>
         <button className={styles.submitButton} type="submit">
