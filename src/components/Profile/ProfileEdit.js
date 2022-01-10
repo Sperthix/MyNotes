@@ -37,7 +37,7 @@ const ProfileEdit = (props) => {
           className={styles.input}
           id="fullName"
           type="text"
-          defaultValue="Matus Buci"
+          defaultValue={userDetails.fullName}
           ref={enteredName}
         ></input>
 

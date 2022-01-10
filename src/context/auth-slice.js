@@ -66,9 +66,11 @@ const authSlice = createSlice({
     },
     logout(state) {
       state.token = "";
+      state.uid = "";
       state.isLoggedIn = false;
       localStorage.removeItem("uid");
       localStorage.removeItem("token");
+      localStorage.removeItem("expiresAt");
     },
   },
 });

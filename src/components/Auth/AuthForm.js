@@ -28,16 +28,8 @@ const AuthForm = (props) => {
   }, [props.from]);
 
   useEffect(() => {
-    // clear old data before loggin in new user - not good implementation, but it works for now (:
-    dispatch(
-      userDetailsActions.setUserData({
-        name: "",
-        username: "",
-        age: "",
-        email: "",
-        address: "",
-      })
-    );
+    // clear old data before loggin in new user - just in case, but should be already clean
+    dispatch(userDetailsActions.clearUserData());
   });
 
   const submitHandler = (event) => {

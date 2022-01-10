@@ -13,6 +13,13 @@ const userDetailsSlice = createSlice({
       state.details.email = action.payload.email;
       state.details.address = action.payload.address;
     },
+    clearUserData(state) {
+      state.details.fullName = "";
+      state.details.username = "";
+      state.details.age = "";
+      state.details.email = "";
+      state.details.address = "";
+    },
   },
 });
 

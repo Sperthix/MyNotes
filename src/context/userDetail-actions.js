@@ -20,7 +20,7 @@ export const getUserDetails = () => {
       const userDetailsData = await getData();
       dispatch(
         userDetailsActions.setUserData({
-          fullNname: userDetailsData.name,
+          fullName: userDetailsData.fullName,
           username: userDetailsData.username,
           age: userDetailsData.age,
           email: userDetailsData.email,
@@ -42,7 +42,7 @@ export const sendUserDetails = (userDetails) => {
         {
           method: "PUT",
           body: JSON.stringify({
-            fullName: userDetails.name,
+            fullName: userDetails.fullName,
             username: userDetails.username,
             age: userDetails.age,
             email: userDetails.email,

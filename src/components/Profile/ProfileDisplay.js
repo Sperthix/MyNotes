@@ -9,7 +9,7 @@ const ProfileDisplay = () => {
     <section>
       <div className={styles.list}>
         <p className={styles.label}>Full name</p>
-        <p className={styles.data}>{userDetails.name}</p>
+        <p className={styles.data}>{userDetails.fullName}</p>
 
         <p className={styles.label}>Username</p>
         <p className={styles.data}>{userDetails.username}</p>

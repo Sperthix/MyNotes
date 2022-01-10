@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../context/auth-slice";
 
 import styles from "./Navigation.module.css";
+import { userDetailsActions } from "../../context/userDetail-slice";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -15,13 +16,13 @@ const Navigation = () => {
   };
 
   const logoutHandler = () => {
+    dispatch(userDetailsActions.clearUserData())
     dispatch(authActions.logout());
   };
 
   return (
     <nav className={styles.nav}>
       <h1 onClick={goHome}>Sperthix.hopto.org</h1>
-      <p>{isAuthorized}</p>
       <ul>
         {/* homepage */}
         <li>
