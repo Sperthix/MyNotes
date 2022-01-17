@@ -2,6 +2,8 @@ import { authActions } from "./auth-slice";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+let success = false;
+
 export const sendSignUpRequest = (email, password) => {
   // returns an async function
   return async (dispatch) => {
@@ -19,16 +21,20 @@ export const sendSignUpRequest = (email, password) => {
         }
       );
       if (!response.ok) {
+        success = false;
         const error = await response.json();
         throw new Error(error.error.message);
       }
+      success = true;
       const data = await response.json();
       return data;
     };
     try {
       await sendSignUpRequest();
       console.log("User successfully created");
+      return success;
     } catch (error) {
+      console.log(error.message);
       alert(error.message);
     }
   };
@@ -51,9 +57,11 @@ export const sendLoginRequest = (email, password) => {
         }
       );
       if (!response.ok) {
+        success = false;
         const error = await response.json();
         throw new Error(error.error.message);
       }
+      success = true;
       const data = await response.json();
       return data;
     };
@@ -69,6 +77,7 @@ export const sendLoginRequest = (email, password) => {
           loginDuration: expirationTime.toString(),
         })
       );
+      return success;
     } catch (error) {
       alert(error.message);
     }
