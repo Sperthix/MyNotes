@@ -107,7 +107,7 @@ const AuthForm = (props) => {
   if (!pwsAreEqual || password2HasError) displayPw2Error = true;
 
   if (hasAcc) {
-    if (emailIsValid && passwordIsValid) formIsValid = true;
+    if (emailIsValid) formIsValid = true;
   } else {
     if (emailIsValid && passwordIsValid && password2IsValid) formIsValid = true;
   }

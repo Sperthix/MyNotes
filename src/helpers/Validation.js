@@ -5,7 +5,7 @@ export const CheckEquality = (str1, str2) => {
 };
 
 export const IsPasswordStrong = (password) => {
-  const passwordFormat = /^[a-zA-Z0-9]{8,}$/;
+  const passwordFormat = /^[a-zA-Z0-9]{6,}$/;
   let isPasswordStrong = false;
   if (password.length >= 8 && password.match(passwordFormat))
     isPasswordStrong = true;

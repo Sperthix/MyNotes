@@ -1,4 +1,7 @@
 import { Fragment, useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changePassword } from "../../context/auth-actions";
+import { useNavigate } from "react-router-dom";
 import {
   IsPasswordStrong,
   CheckEquality,
@@ -15,6 +18,9 @@ const PopUpForm = (props) => {
   const secondInput = useRef();
 
   const [onError, setOnError] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const idToken = useSelector((state) => state.auth.token);
 
   let isChangingEmail;
   if (props.changing === "Email") {
@@ -59,10 +65,11 @@ const PopUpForm = (props) => {
         error2 = "Passwords do not match!";
         return;
       }
+      dispatch(changePassword(idToken, firstInput.current.value));
     }
     console.log("input is valid");
+    navigate("/profile");
     setOnError(false);
-    // send HTTP req for change here
   };
 
   return (
