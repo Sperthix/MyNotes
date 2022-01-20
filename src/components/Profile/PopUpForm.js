@@ -79,22 +79,38 @@ const PopUpForm = (props) => {
       {isChangingEmail && (
         <Fragment>
           <label>New email</label>
-          <input type="email" id="email" ref={firstInput}></input>
+          <input
+            type="email"
+            id="email"
+            placeholder="your new email"
+            ref={firstInput}
+          ></input>
           {onError && <span className={styles.error}>{error1}</span>}
           <label>Confirm email</label>
-          <input type="email" id="confirm-email" ref={secondInput}></input>
+          <input
+            type="email"
+            id="confirm-email"
+            placeholder="confirm email"
+            ref={secondInput}
+          ></input>
           {onError && <span className={styles.error}>{error2}</span>}
         </Fragment>
       )}
       {!isChangingEmail && (
         <Fragment>
           <label>New password</label>
-          <input type="password" id="password" ref={firstInput}></input>
+          <input
+            type="password"
+            id="password"
+            placeholder="your new password"
+            ref={firstInput}
+          ></input>
           {onError && <span className={styles.error}>{error1}</span>}
           <label>Confirm password</label>
           <input
             type="password"
             id="confirm-password"
+            placeholder="confirm password"
             ref={secondInput}
           ></input>
           {onError && <span className={styles.error}>{error2}</span>}

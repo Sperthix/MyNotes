@@ -27,7 +27,19 @@
   margin-top: 10px;
   margin-left: 80%;
   padding: 0.5rem 1rem;
+  transition: all 0.1s ease-in;
 }
+
+.edit:hover {
+  background-color: #30ee00;
+  border: 1px solid #30ee00;
+}
+.edit:active {
+  background-color: #30ee00;
+  border: 1px solid #30ee00;
+  transform: scale(1.1);
+}
+
 .list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,6 +73,17 @@
   margin: auto 0.2rem;
   padding: 0.5rem;
   max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid #30ee00;
+}
+
+.input:focus::placeholder {
+  padding-left: 4px;
+  transition: all 0.3 ease;
 }
 
 .submitButton {
@@ -73,6 +96,17 @@
   border-radius: 5px;
   cursor: pointer;
   max-width: 200px;
+  transition: all 0.2s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: #30ee00;
+  border: 1px solid #30ee00;
+}
+.submitButton:active {
+  background-color: #30ee00;
+  border: 1px solid #30ee00;
+  transform: scale(1.05);
 }
 
 .delete {
@@ -83,7 +117,7 @@
   cursor: pointer;
   padding: 0.5rem 0.2rem;
   margin: 0.3rem;
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 .delete:hover,

@@ -33,6 +33,11 @@
   max-width: 300px;
   color: #e7eaf6;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.nav h1:hover {
+  transform: scale(1.1);
 }
 
 .link {
@@ -46,6 +51,7 @@
   background-color: #a2a8d3;
   font-weight: bolder;
   cursor: pointer;
+  transition: all .1s ease-in;
 }
 
 .link:focus {
