@@ -1,9 +1,21 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { deleteUser } from "../../context/auth-actions";
+import { authActions } from "../../context/auth-slice";
 
 import styles from "./Profile.module.css";
 
 const ProfileDisplay = (props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.userDetails.details);
+  const idToken = useSelector((state) => state.auth.token);
+
+  const deleteAccHandler = () => {
+    dispatch(deleteUser(idToken));
+    dispatch(authActions.logout());
+    navigate("/welcome");
+  };
 
   return (
     <section>
@@ -29,6 +41,13 @@ const ProfileDisplay = (props) => {
       <div className={styles.change} onClick={props.changePassword}>
         Change password
       </div>
+      <button
+        className={styles.delete}
+        type="button"
+        onClick={deleteAccHandler}
+      >
+        Delete this account
+      </button>
     </section>
   );
 };

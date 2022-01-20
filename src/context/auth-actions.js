@@ -107,3 +107,59 @@ export const changePassword = (idToken, password) => {
     }
   };
 };
+
+export const changeEmail = (idToken, email) => {
+  return async (dispatch) => {
+    const sendChangeEmailRequest = async () => {
+      const response = await fetch(
+        `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API_KEY}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            idToken,
+            email,
+            returnSecureToken: true,
+          }),
+        }
+      );
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error.message);
+      }
+      const data = await response.json();
+      return data;
+    };
+    try {
+      await sendChangeEmailRequest().localId;
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+};
+
+export const deleteUser = (idToken) => {
+  return async (dispatch) => {
+    const sendChangeEmailRequest = async () => {
+      const response = await fetch(
+        `https://identitytoolkit.googleapis.com/v1/accounts:delete?key=${API_KEY}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            idToken,
+          }),
+        }
+      );
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error.message);
+      }
+      const data = await response.json();
+      return data;
+    };
+    try {
+      await sendChangeEmailRequest();
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+};

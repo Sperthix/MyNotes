@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changePassword } from "../../context/auth-actions";
+import { changePassword, changeEmail } from "../../context/auth-actions";
 import { useNavigate } from "react-router-dom";
 import {
   IsPasswordStrong,
@@ -49,6 +49,7 @@ const PopUpForm = (props) => {
         setOnError(true);
         return;
       }
+      dispatch(changeEmail(idToken, firstInput.current.value));
     } else {
       const validPassword = IsPasswordStrong(firstInput.current.value);
       const passwordMatches = CheckEquality(
