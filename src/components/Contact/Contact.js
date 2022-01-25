@@ -4,8 +4,8 @@ import { IsEmailValid } from "../../helpers/Validation";
 import emailjs from "@emailjs/browser";
 
 import styles from "./Contact.module.css";
-const API_KEY = "user_oUrziaznfMFi1NvxvV8d8";
-// const API_KEY = process.env.REACT_APP_EMAILJS_API_KEY;
+
+const API_KEY = process.env.REACT_APP_EMAILJS_API_KEY;
 
 const Contact = () => {
   const emailInputRef = useRef();
@@ -30,7 +30,6 @@ const Contact = () => {
         message: textInputRef.current.value,
       };
 
-      console.log(payload, API_KEY);
       emailjs.send("gmail", "contact_sperthix", payload, API_KEY).then(
         function (response) {
           alert("SUCCESS!", response.status, response.text);
@@ -72,7 +71,12 @@ const Contact = () => {
             onBlur={emailBlurHandler}
             value={enteredEmail}
           ></input>
-          <textarea placeholder="Message" ref={textInputRef}></textarea>
+          <label htmlFor="message">Your message</label>
+          <textarea
+            id="message"
+            placeholder="Message"
+            ref={textInputRef}
+          ></textarea>
           <button type="submit">Send</button>
         </form>
       </div>
