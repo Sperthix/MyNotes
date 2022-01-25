@@ -1,5 +1,6 @@
 .nav {
   background-color: #113f67;
+  background: linear-gradient(to right, rgb(0, 200, 255), rgb(0, 0, 150));
   height: 80px;
   max-width: auto;
   margin-bottom: 0;

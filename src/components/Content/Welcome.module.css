@@ -1,0 +1,68 @@
+.page {
+  position: relative;
+  top: 80px;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #292929;
+  background-image: url("../../assets/coding_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-size: 100%, calc(100vh - 80px); */
+  overflow: none;
+  scroll-snap-align: end;
+}
+
+.page h1 {
+  color: #e7eaf6;
+  margin: 1rem auto;
+  text-align: center;
+  text-shadow: #292929 3px 2px;
+  font-size: 4rem;
+
+  position: relative;
+  top: 20px;
+}
+
+.page section {
+  position: relative;
+  top: calc(100vh - 88%);
+  left: calc(100vw - 35%);
+}
+
+.page section span {
+  display: block;
+  color: #e7eaf6;
+  margin-bottom: 0.3rem;
+  text-shadow: #292929 1px 1px;
+  font-size: 1.3rem;
+}
+
+.page section div {
+  display: flex;
+  color: #e7eaf6;
+  margin-bottom: 0.3rem;
+  text-shadow: #292929 1px 1px;
+  font-size: 1.3rem;
+}
+
+.page section img {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  animation: arrowBounce 1s infinite ease-in-out;
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
