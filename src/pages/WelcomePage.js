@@ -1,9 +1,12 @@
-const Welcome = () => {
+import { Fragment } from "react";
+import Main from "../components/Content/Main";
+
+const WelcomePage = () => {
   return (
-    <section>
-      <p className="centered">Welcome to my website.</p>
-    </section>
+    <Fragment>
+      <Main />
+    </Fragment>
   );
 };
 
-export default Welcome;
+export default WelcomePage;

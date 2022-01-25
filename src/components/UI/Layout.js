@@ -5,7 +5,9 @@ import styles from "./Layout.module.css";
 const Layout = (props) => {
   return (
     <div className={styles.page}>
-      <Navigation />
+      <nav>
+        <Navigation />
+      </nav>
       <main>{props.children}</main>
     </div>
   );

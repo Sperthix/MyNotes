@@ -20,13 +20,9 @@ const AuthForm = (props) => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const password2InputRef = useRef();
-
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
-
   const [hasAcc, setHasAcc] = useState(true);
-
   let formIsValid = false;
 
   const {

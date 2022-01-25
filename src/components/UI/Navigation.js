@@ -9,14 +9,14 @@ const Navigation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthorized = useSelector((state) => state.auth.isLoggedIn);
-  const username = useSelector((state) => state.userDetails.details.username)
+  const username = useSelector((state) => state.userDetails.details.username);
 
   const goHome = () => {
     navigate("/welcome");
   };
 
   const logoutHandler = () => {
-    dispatch(userDetailsActions.clearUserData())
+    dispatch(userDetailsActions.clearUserData());
     dispatch(authActions.logout());
   };
 

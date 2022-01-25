@@ -1,13 +1,7 @@
-import { Fragment } from "react";
-
 import Profile from "../components/Profile/Profile";
 
 const ProfilePage = () => {
-  return (
-    <Fragment>
-      <Profile />
-    </Fragment>
-  );
+  return <Profile />;
 };
 
 export default ProfilePage;

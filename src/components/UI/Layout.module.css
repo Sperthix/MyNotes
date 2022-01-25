@@ -1,4 +1,19 @@
 .page {
   display: grid;
-  /* grid-template-areas: "head head"; */
+}
+
+.page main {
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin: 0;
+  position: relative;
+  top: 80px;
+  scroll-snap-type: y mandatory;
+}
+
+.page nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
