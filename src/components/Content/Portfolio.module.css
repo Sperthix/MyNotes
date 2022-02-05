@@ -3,10 +3,15 @@
   top: 80px;
   width: 100%;
   height: calc(100vh - 80px);
-  background-color: orange;
+  background-image: url("../../assets/portfolioBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   scroll-snap-align: end;
 }
 
 .page h1 {
   margin-top: 0;
+  text-align: center;
+  color: #e7eaf6;
+  font-size: 3rem;
 }
