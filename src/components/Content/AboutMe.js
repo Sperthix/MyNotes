@@ -45,7 +45,7 @@ const AboutMe = () => {
         </Modal>
       )}
       <div>
-        <img src={avatar} alt="profile picture of Matus Buci"></img>
+        <img src={avatar} alt="profile picture of Matus Buci" />
       </div>
       <div>
         <span>Hi, I am</span>
@@ -71,7 +71,7 @@ const AboutMe = () => {
           </a>
           <a
             className={styles.icon}
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/matus-buci-224b46230/"
             target="_blank"
           >
             <FontAwesomeIcon icon={faLinkedin} />
